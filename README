@@ -1,0 +1,52 @@
+Support for Java EE Stack
+=========================
+
+About Sjees
+-----------
+Sjees is a project focused on reusable code frequently used in developing
+enterprise applications using the pure Java EE stack. In particular, this means
+without using any third-party framework like Spring or Seam.
+
+How to Use Sjees
+----------------
+Sjees is an Open Source project covered by the Apache License.
+
+Sjees requires Java SE 6 or higher and Java EE 6 or higher. Some features
+of Sjees may require the full Java EE profile. Sjees is not guaranteed to work
+on or even to be deployable to application servers supporting only the Java
+EE Web Profile.
+
+Sjees is released as a Maven dependency through sellcom.org Maven repositories:
+
+	<repository>
+		<id>sellcom-releases</id>
+		<name>sellcom.org Release Repository</name>
+		<url>http://repository.sellcom.org/official/releases/</url>
+	</repository>
+
+	<repository>
+		<id>sellcom-snapshots</id>
+		<name>sellcom.org Snapshot Repository</name>
+		<url>http://repository.sellcom.org/official/snapshots/</url>
+	</repository>
+
+	<dependency>
+		<groupId>org.sellcom</groupId>
+		<artifactId>sjees</artifactId>
+		<version>PUT-YOUR-DESIRED-VERSION-HERE</version>
+	</dependency>
+
+Sjees Policies
+--------------
+Members marked with the @NotApi annotation and/or members not described in
+the API documentation (JavaDoc) are not part of the official API. These members
+can be arbitrarily modified, or even removed, at any time.
+
+APIs marked with the @Beta annotation are subject to change.
+
+Deprecated non-beta APIs may be removed twelve months after the release
+in which they are first deprecated. Deprecated beta APIs may be removed in
+any release following the release in which they are first deprecated.
+
+Serialized forms of all objects are subject to change at any time.
+
