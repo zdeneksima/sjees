@@ -1,0 +1,16 @@
+<!DOCTYPE project>
+<project name="sjees" default="package" basedir=".">
+
+	<target name="clean" description="">
+		<exec executable="mvn">
+			<arg value="clean"/>
+		</exec>
+	</target>
+
+	<target name="package" description="">
+		<exec executable="mvn">
+			<arg value="package"/>
+		</exec>
+	</target>
+
+</project>
