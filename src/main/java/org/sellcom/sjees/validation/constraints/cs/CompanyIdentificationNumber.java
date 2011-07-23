@@ -24,12 +24,12 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import org.sellcom.sjees.validation.constraints.cs.impl.NationalIdentificationNumberValidator;
+import org.sellcom.sjees.validation.constraints.cs.impl.CompanyIdentificationNumberValidator;
 
 import com.google.common.annotations.Beta;
 
 /**
- * Requires the annotated element to be a valid national identification number ("rodné číslo") used in Czech Republic.
+ * Requires the annotated element to be a valid company identification number ("identifikační číslo") used in Czech Republic.
  * <p>
  * The annotated element must be of type {@code String}.
  *
@@ -38,12 +38,12 @@ import com.google.common.annotations.Beta;
 @Documented @Beta
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = NationalIdentificationNumberValidator.class)
-public @interface NationalIdentificationNumber {
+@Constraint(validatedBy = CompanyIdentificationNumberValidator.class)
+public @interface CompanyIdentificationNumber {
 
 	Class<?>[] groups() default {};
 
-	String message() default "{org.sellcom.sjees.validation.constraints.cs.NationalIdentificationNumber.message}";
+	String message() default "{org.sellcom.sjees.validation.constraints.cs.CompanyIdentificationNumber.message}";
 
 	Class<? extends Payload>[] payload() default {};
 
@@ -51,7 +51,7 @@ public @interface NationalIdentificationNumber {
 	@Target({ ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.PARAMETER })
 	@Retention(RetentionPolicy.RUNTIME)
 	@interface List {
-		NationalIdentificationNumber[] value();
+		CompanyIdentificationNumber[] value();
 	}
 
 }

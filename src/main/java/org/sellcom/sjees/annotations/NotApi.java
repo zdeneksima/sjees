@@ -22,8 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates that an element is not part of the public API
- * and may be subject to arbitrary changes at any time.
+ * Indicates that an element is not part of the public API and may be subject to arbitrary modifications (including removal) at any time.
  *
  * @author Petr Zelenka
  */

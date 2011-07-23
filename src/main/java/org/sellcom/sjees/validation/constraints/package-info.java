@@ -17,9 +17,7 @@
 /**
  * Constraints for JSR-303: Bean Validation.
  * <p>
- * All constraints define an internal annotation named {@code List}
- * that may be used to define several instances of that constraint on
- * the same element.
+ * All constraints define an internal annotation named {@code List} that may be used to define several instances of that constraint on the same element.
  * <p>
  * All constraints consider {@code null} elements to be valid.
  *
