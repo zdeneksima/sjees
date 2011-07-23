@@ -22,12 +22,28 @@ Sjees is released as a Maven dependency through sellcom.org Maven repositories:
 		<id>sellcom-releases</id>
 		<name>sellcom.org Release Repository</name>
 		<url>http://repository.sellcom.org/official/releases/</url>
+		<releases>
+			<enabled>true</enabled>
+			<checksumPolicy>fail</checksumPolicy>
+			<updatePolicy>never</updatePolicy>
+		</releases>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
 	</repository>
 
 	<repository>
 		<id>sellcom-snapshots</id>
 		<name>sellcom.org Snapshot Repository</name>
 		<url>http://repository.sellcom.org/official/snapshots/</url>
+		<releases>
+			<enabled>false</enabled>
+		</releases>
+		<snapshots>
+			<enabled>true</enabled>
+			<checksumPolicy>fail</checksumPolicy>
+			<updatePolicy>always</updatePolicy>
+		</snapshots>
 	</repository>
 
 	<dependency>
