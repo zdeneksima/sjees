@@ -15,7 +15,9 @@
  */
 package org.sellcom.sjees.io;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -23,16 +25,16 @@ public class FileNameUtilsTest {
 
 	@Test
 	public void testGetExtension() {
-		assertEquals("java", FileNameUtils.getExtension("FileNameUtils.java"));
-		assertEquals("cs", FileNameUtils.getExtension("common.io.cs"));
-		assertEquals("", FileNameUtils.getExtension(".ssh"));
+		assertThat(FileNameUtils.getExtension("FileNameUtils.java"), is(equalTo("java")));
+		assertThat(FileNameUtils.getExtension("common.io.cs"), is(equalTo("cs")));
+		assertThat(FileNameUtils.getExtension(".ssh"), is(equalTo("")));
 	}
 
 	@Test
 	public void testGetName() {
-		assertEquals("FileNameUtils", FileNameUtils.getNameWithoutExtension("FileNameUtils"));
-		assertEquals("common.io", FileNameUtils.getNameWithoutExtension("common.io.cs"));
-		assertEquals(".ssh", FileNameUtils.getNameWithoutExtension(".ssh"));
+		assertThat(FileNameUtils.getNameWithoutExtension("FileNameUtils"), is(equalTo("FileNameUtils")));
+		assertThat(FileNameUtils.getNameWithoutExtension("common.io.cs"), is(equalTo("common.io")));
+		assertThat(FileNameUtils.getNameWithoutExtension(".ssh"), is(equalTo(".ssh")));
 	}
 
 }
