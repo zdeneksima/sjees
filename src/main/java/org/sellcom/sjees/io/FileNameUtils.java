@@ -27,43 +27,6 @@ import com.google.common.base.Strings;
 @Beta
 public class FileNameUtils {
 
-	/**
-	 * Installation directory of the Java Runtime Environment (JRE).
-	 */
-	public static final String JAVA_HOME_DIRECTORY = System.getProperty("java.home");
-
-	/**
-	 * Working directory of the Java Runtime Environment (JRE).
-	 */
-	public static final String JAVA_WORKING_DIRECTORY = System.getProperty("user.dir");
-
-	/**
-	 * System-dependent separator of lines in text files.
-	 * <p>
-	 * On most UNIX systems, the value of this constant is "\n"; on Microsoft Windows systems, it is "\r\n".
-	 */
-	public static final String LINE_SEPARATOR = System.getProperty("line.separator");
-
-	/**
-	 * System-dependent separator of components in a file path.
-	 * <p>
-	 * On most UNIX systems, the value of this constant is "/"; on Microsoft Windows systems, it is "\\".
-	 */
-	public static final String PATH_COMPONENT_SEPARATOR = System.getProperty("file.separator").substring(0, 1);
-
-	/**
-	 * System-dependent separator of directories in the PATH environment variable.
-	 * <p>
-	 * On UNIX systems, the value of this constant is ":"; on Microsoft Windows systems, it is ";".
-	 */
-	public static final String PATH_SEPARATOR = System.getProperty("path.separator").substring(0, 1);
-
-	/**
-	 * Home directory of the current user.
-	 */
-	public static final String USER_HOME_DIRECTORY = System.getProperty("user.home");
-
-
 	private FileNameUtils() {
 		// Utility class. Not to be instantiated.
 	}
@@ -73,7 +36,11 @@ public class FileNameUtils {
 	 * Returns the extension part of the given file name.
 	 * Returns an empty string if the file name does not contain an extension.
 	 * <p>
-	 * Unix hidden files are handled correctly: {@code getExtension(".ssh") == ""}
+	 * <b>NOTE:</b> The file name passed to this function must not contain any path delimiting characters.
+	 * This contract is not enforced in any way and the responsibility to adhere to it is left solely on the user.
+	 * If not satisfied, the function may provide incorrect results or fail otherwise without further notice.
+	 * <p>
+	 * Unix hidden files are handled correctly: {@code getExtension(".gitignore") == ""}
 	 *
 	 * @throws IllegalArgumentException if {@code fileName} is {@code null} or empty
 	 */
@@ -87,7 +54,11 @@ public class FileNameUtils {
 	/**
 	 * Returns the name part of the given file name.
 	 * <p>
-	 * Unix hidden files are handled correctly: {@code getNameWithoutExtension(".ssh") == ".ssh"}
+	 * <b>NOTE:</b> The file name passed to this function must not contain any path delimiting characters.
+	 * This contract is not enforced in any way and the responsibility to adhere to it is left solely on the user.
+	 * If not satisfied, the function may provide incorrect results or fail otherwise without further notice.
+	 * <p>
+	 * Unix hidden files are handled correctly: {@code getNameWithoutExtension(".gitignore") == ".gitignore"}
 	 *
 	 * @throws IllegalArgumentException if {@code fileName} is {@code null} or empty
 	 */

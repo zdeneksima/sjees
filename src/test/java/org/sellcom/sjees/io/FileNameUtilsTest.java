@@ -26,15 +26,17 @@ public class FileNameUtilsTest {
 	@Test
 	public void testGetExtension() {
 		assertThat(FileNameUtils.getExtension("FileNameUtils.java"), is(equalTo("java")));
-		assertThat(FileNameUtils.getExtension("common.io.cs"), is(equalTo("cs")));
-		assertThat(FileNameUtils.getExtension(".ssh"), is(equalTo("")));
+		assertThat(FileNameUtils.getExtension(".gitignore"), is(equalTo("")));
+		assertThat(FileNameUtils.getExtension("LICENSE"), is(equalTo("")));
+		assertThat(FileNameUtils.getExtension("org.eclipse.core.runtime.prefs"), is(equalTo("prefs")));
 	}
 
 	@Test
 	public void testGetName() {
-		assertThat(FileNameUtils.getNameWithoutExtension("FileNameUtils"), is(equalTo("FileNameUtils")));
-		assertThat(FileNameUtils.getNameWithoutExtension("common.io.cs"), is(equalTo("common.io")));
-		assertThat(FileNameUtils.getNameWithoutExtension(".ssh"), is(equalTo(".ssh")));
+		assertThat(FileNameUtils.getNameWithoutExtension("FileNameUtils.java"), is(equalTo("FileNameUtils")));
+		assertThat(FileNameUtils.getNameWithoutExtension(".gitignore"), is(equalTo(".gitignore")));
+		assertThat(FileNameUtils.getNameWithoutExtension("LICENSE"), is(equalTo("LICENSE")));
+		assertThat(FileNameUtils.getNameWithoutExtension("org.eclipse.core.runtime.prefs"), is(equalTo("org.eclipse.core.runtime")));
 	}
 
 }
