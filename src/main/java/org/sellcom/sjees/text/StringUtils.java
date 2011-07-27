@@ -44,9 +44,9 @@ public class StringUtils {
 	public static String firstNonEmpty(String... strings) {
 		Preconditions.checkArgument(!Strings.isNullOrEmpty(strings[strings.length - 1]), "The last parameter must not be empty or null");
 
-		for (String s : strings) {
-			if (!Strings.isNullOrEmpty(s)) {
-				return s;
+		for (String currentString : strings) {
+			if (!Strings.isNullOrEmpty(currentString)) {
+				return currentString;
 			}
 		}
 
@@ -79,7 +79,7 @@ public class StringUtils {
 	 * @throws IllegalArgumentException if {@code string} is {@code null}
 	 * @throws IllegalArgumentException if {@code rules} is {@code null}
 	 */
-	public static String replaceAllUsingRules(String string, Map<String, String> rules) {
+	public static String replaceAllUsingRegexRules(String string, Map<String, String> rules) {
 		Preconditions.checkArgument(string != null, "The input string must not be null");
 		Preconditions.checkArgument(rules != null, "The replacement rules must not be null");
 
