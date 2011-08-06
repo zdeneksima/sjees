@@ -1,0 +1,2 @@
+org.sellcom.sjees.validation.constraints.cs.CompanyIdentificationNumber.message = Neplatné rodné číslo
+org.sellcom.sjees.validation.constraints.cs.NationalIdentificationNumber.message = Neplatné identifikační číslo

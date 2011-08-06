@@ -29,7 +29,7 @@ import org.sellcom.sjees.validation.constraints.cs.impl.CompanyIdentificationNum
 import com.google.common.annotations.Beta;
 
 /**
- * Requires the annotated element to be a valid company identification number ("identifikační číslo") used in Czech Republic.
+ * Requires the annotated element to be a valid company identification number ("identifikační číslo", "IČ") used in Czech Republic.
  * <p>
  * The annotated element must be of type {@code String}.
  *

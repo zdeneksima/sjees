@@ -29,7 +29,7 @@ import org.sellcom.sjees.validation.constraints.cs.impl.NationalIdentificationNu
 import com.google.common.annotations.Beta;
 
 /**
- * Requires the annotated element to be a valid national identification number ("rodné číslo") used in Czech Republic.
+ * Requires the annotated element to be a valid national identification number ("rodné číslo", "RČ") used in Czech Republic.
  * <p>
  * The annotated element must be of type {@code String}.
  *

@@ -1,0 +1,2 @@
+org.sellcom.sjees.validation.constraints.cs.CompanyIdentificationNumber.message = Invalid company identification number
+org.sellcom.sjees.validation.constraints.cs.NationalIdentificationNumber.message = Invalid national identification number
