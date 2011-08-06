@@ -43,9 +43,9 @@ public class ComparableUtils {
 
 		T result = objects[0];
 
-		for (T current : objects) {
-			if (current.compareTo(result) > 0) {
-				result = current;
+		for (T currentObject : objects) {
+			if (currentObject.compareTo(result) > 0) {
+				result = currentObject;
 			}
 		}
 
@@ -64,9 +64,9 @@ public class ComparableUtils {
 
 		T result = objects[0];
 
-		for (T current : objects) {
-			if (current.compareTo(result) < 0) {
-				result = current;
+		for (T currentObject : objects) {
+			if (currentObject.compareTo(result) < 0) {
+				result = currentObject;
 			}
 		}
 
