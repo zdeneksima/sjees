@@ -57,13 +57,13 @@ public class DateUtils {
 	}
 
 
-	private static Calendar toCalendar(long millisecondsFromEpoch) {
+	static Calendar toCalendar(long millisecondsFromEpoch) {
 		Calendar result = Calendar.getInstance();
 		result.setTimeInMillis(millisecondsFromEpoch);
 		return result;
 	}
 
-	private static Calendar toCalendar(Date instant) {
+	static Calendar toCalendar(Date instant) {
 		Calendar result = Calendar.getInstance();
 		result.setTime(instant);
 		return result;

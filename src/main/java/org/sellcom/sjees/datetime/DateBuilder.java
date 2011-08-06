@@ -106,6 +106,8 @@ public class DateBuilder implements Builder<Date> {
 
 	/**
 	 * Sets the day of week of the instant represented by this builder.
+	 * <p>
+	 * The {@code dayOfWeek} parameter takes values {@link Calendar#SUNDAY}, {@link Calendar#MONDAY}, {@link Calendar#TUESDAY}, {@link Calendar#WEDNESDAY}, {@link Calendar#THURSDAY}, {@link Calendar#FRIDAY}, and {@link Calendar#SATURDAY}.
 	 */
 	public DateBuilder withDayOfWeek(int dayOfWeek) {
 		calendar.set(Calendar.DAY_OF_WEEK, dayOfWeek);
@@ -114,6 +116,8 @@ public class DateBuilder implements Builder<Date> {
 
 	/**
 	 * Sets the day of week in month of the instant represented by this builder.
+	 *
+	 * @see Calendar#DAY_OF_WEEK_IN_MONTH
 	 */
 	public DateBuilder withDayOfWeekInMonth(int dayOfWeekInMonth) {
 		calendar.set(Calendar.DAY_OF_WEEK_IN_MONTH, dayOfWeekInMonth);
@@ -130,14 +134,19 @@ public class DateBuilder implements Builder<Date> {
 
 	/**
 	 * Sets the hour of the instant represented by this builder.
+	 * Uses 12-hour format.
+	 * <p>
+	 * The {@code amPmIndicator} parameter takes values {@link Calendar#AM} and {@link Calendar#PM}.
 	 */
-	public DateBuilder withHour(int hour) {
+	public DateBuilder withHour(int hour, int amPmIndicator) {
 		calendar.set(Calendar.HOUR, hour);
+		calendar.set(Calendar.AM_PM, amPmIndicator);
 		return this;
 	}
 
 	/**
 	 * Sets the hour of day of the instant represented by this builder.
+	 * Uses 24-hour format.
 	 */
 	public DateBuilder withHourOfDay(int hourOfDay) {
 		calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
@@ -162,6 +171,8 @@ public class DateBuilder implements Builder<Date> {
 
 	/**
 	 * Sets the month of the instant represented by this builder.
+	 * <p>
+	 * The {@code month} parameter takes values {@link Calendar#JANUARY}, {@link Calendar#FEBRUARY}, {@link Calendar#MARCH}, {@link Calendar#APRIL}, {@link Calendar#MAY}, {@link Calendar#JUNE}, {@link Calendar#JULY}, {@link Calendar#AUGUST}, {@link Calendar#SEPTEMBER}, {@link Calendar#OCTOBER}, {@link Calendar#NOVEMBER}, {@link Calendar#DECEMBER}, and {@link Calendar#UNDECIMBER}.
 	 */
 	public DateBuilder withMonth(int month) {
 		calendar.set(Calendar.MONTH, month);
