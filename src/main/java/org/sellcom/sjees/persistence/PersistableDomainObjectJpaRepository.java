@@ -43,7 +43,7 @@ public abstract class PersistableDomainObjectJpaRepository<T extends Persistable
 
 
 	/**
-	 * TODO
+	 * Attach the given persistable domain object to the current persistence context if not already attached.
 	 */
 	protected T ensureAttached(T persistableDomainObject) {
 		return entityManager.contains(persistableDomainObject) ? persistableDomainObject : entityManager.merge(persistableDomainObject);
