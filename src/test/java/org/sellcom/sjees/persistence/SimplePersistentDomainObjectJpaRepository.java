@@ -13,22 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.sellcom.sjees.lang.archetype;
+package org.sellcom.sjees.persistence;
 
-/**
- * Common interface for classes implementing the Builder design pattern.
- * <p>
- * It is recommended that the result of the {@link Builder#build()} method be final.
- * <p>
- * It is recommended that the other methods implemented by the builder return a reference to the builder itself in order to create a fluent interface.
- *
- * @author Petr Zelenka
- */
-public interface Builder<T> {
+public class SimplePersistentDomainObjectJpaRepository extends PersistableDomainObjectJpaRepository<SimplePersistentDomainObject> implements SimplePersistentDomainObjectRepository {
 
-	/**
-	 * Returns a reference to the object being constructed or result being calculated by the builder.
-	 */
-	T build();
+	// Nothing to add.
 
 }

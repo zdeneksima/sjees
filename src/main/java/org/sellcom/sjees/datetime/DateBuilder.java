@@ -3,8 +3,6 @@ package org.sellcom.sjees.datetime;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.sellcom.sjees.lang.archetype.Builder;
-
 import com.google.common.annotations.Beta;
 
 /**
@@ -15,7 +13,7 @@ import com.google.common.annotations.Beta;
  * @author Petr Zelenka
  */
 @Beta
-public class DateBuilder implements Builder<Date> {
+public class DateBuilder {
 
 	private Calendar calendar;
 
@@ -91,7 +89,6 @@ public class DateBuilder implements Builder<Date> {
 		return this;
 	}
 
-	@Override
 	public Date build() {
 		return calendar.getTime();
 	}
