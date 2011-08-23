@@ -47,7 +47,7 @@ public abstract class PersistableDomainObject {
 
 
 	/**
-	 * Indicates whether the given object is "equal to" this one.
+	 * Indicates whether the specified object is "equal to" this one.
 	 * In order to be equal, both objects must be of type {@code PersistentDomainObject} and have the same id.
 	 * {@code PersistentDomainObject} that have not yet been assigned an id are never equal.
 	 * Be sure to have the id assigned before using the {@code PersistentDomainObject} in collections.

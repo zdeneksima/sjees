@@ -43,7 +43,7 @@ public abstract class PersistableDomainObjectJpaRepository<T extends Persistable
 
 
 	/**
-	 * Attach the given persistable domain object to the current persistence context if not already attached.
+	 * Attach the specified persistable domain object to the current persistence context if not already attached.
 	 */
 	protected T ensureAttached(T persistableDomainObject) {
 		return entityManager.contains(persistableDomainObject) ? persistableDomainObject : entityManager.merge(persistableDomainObject);
@@ -72,6 +72,11 @@ public abstract class PersistableDomainObjectJpaRepository<T extends Persistable
 		T result = persistableDomainObject;
 		entityManager.persist(result);
 		return result;
+	}
+
+	@Override
+	public T saveOrUpdate(T persistableDomainObject) {
+		return (persistableDomainObject.getId() == null) ? save(persistableDomainObject) : update(persistableDomainObject);
 	}
 
 	@Override

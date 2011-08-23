@@ -36,7 +36,27 @@ public class StringUtils {
 
 
 	/**
-	 * Returns the first non-empty string from the given parameters.
+	 * Returns the specified string with initial letters of each word capitalized.
+	 *
+	 * @throws IllegalArgumentException if {@code string} is {@code null}
+	 */
+	public static String capitalize(String string) {
+		Preconditions.checkArgument(string != null, "The input string must not be null");
+
+		StringBuilder result = new StringBuilder(string);
+		result.setCharAt(0, Character.toUpperCase(result.charAt(0)));
+
+		for (int i = 1; i < result.length(); i++) {
+			if (Character.isLetterOrDigit(result.charAt(i)) != Character.isLetterOrDigit(result.charAt(i - 1))) {
+				result.setCharAt(i, Character.toUpperCase(result.charAt(i)));
+			}
+		}
+
+		return result.toString();
+	}
+
+	/**
+	 * Returns the first non-empty string from the specified parameters.
 	 * Considers {@code null}s to be empty strings.
 	 *
 	 * @throws IllegalArgumentException if the last parameter is an empty string or {@code null}
@@ -54,7 +74,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * Checks whether the given string consists of whitespace only.
+	 * Checks whether the specified string consists of whitespace only.
 	 * Considers whitespace as defined by {@link Character#isWhitespace(char)}.
 	 *
 	 * @throws IllegalArgumentException if {@code string} is {@code null}
@@ -72,7 +92,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * Performs replacements on the given string using the specified rules.
+	 * Performs replacements on the specified string using the specified rules.
 	 * The rules are specified as a {@link Map}, where the key is the regular expression to match and the value is the desired replacement.
 	 * Note that backslashes (\) and dollar signs ($) in the replacement string may cause the results to be different than if it were being treated as a literal replacement string; see {@link Matcher#replaceAll} for details.
 	 *
@@ -90,6 +110,26 @@ public class StringUtils {
 		}
 
 		return result;
+	}
+
+	/**
+	 * Returns the specified string with initial letters of each word uncapitalized.
+	 *
+	 * @throws IllegalArgumentException if {@code string} is {@code null}
+	 */
+	public static String uncapitalize(String string) {
+		Preconditions.checkArgument(string != null, "The input string must not be null");
+
+		StringBuilder result = new StringBuilder(string);
+		result.setCharAt(0, Character.toLowerCase(result.charAt(0)));
+
+		for (int i = 1; i < result.length(); i++) {
+			if (Character.isLetterOrDigit(result.charAt(i)) != Character.isLetterOrDigit(result.charAt(i - 1))) {
+				result.setCharAt(i, Character.toLowerCase(result.charAt(i)));
+			}
+		}
+
+		return result.toString();
 	}
 
 }

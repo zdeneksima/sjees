@@ -33,7 +33,7 @@ public class FileNameUtils {
 
 
 	/**
-	 * Returns the extension part of the given file name.
+	 * Returns the extension part of the specified file name.
 	 * Returns an empty string if the file name does not contain an extension.
 	 * <p>
 	 * <b>NOTE:</b> The file name passed to this function must not contain any path delimiting characters.
@@ -52,7 +52,7 @@ public class FileNameUtils {
 	}
 
 	/**
-	 * Returns the name part of the given file name.
+	 * Returns the name part of the specified file name.
 	 * <p>
 	 * <b>NOTE:</b> The file name passed to this function must not contain any path delimiting characters.
 	 * This contract is not enforced in any way and the responsibility to adhere to it is left solely on the user.

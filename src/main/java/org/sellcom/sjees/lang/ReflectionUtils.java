@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.google.common.annotations.Beta;
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
@@ -41,10 +42,14 @@ public class ReflectionUtils {
 
 
 	/**
-	 * Returns the {@link Class} object corresponding to the given {@link Type}.
+	 * Returns the {@link Class} object corresponding to the specified {@link Type}.
 	 * Returns {@code null} if such {@link Class} object cannot be determined.
+	 *
+	 * @throws IllegalArgumentException if {@code type} is {@code null}
 	 */
 	public static Class<?> getClassForType(Type type) {
+		Preconditions.checkArgument(type != null, "Type cannot be null");
+
 		if (type instanceof Class<?>) {
 			return (Class<?>) type;
 		}
@@ -66,14 +71,19 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Returns a list of {@link Class} objects corresponding to the actual type parameters of the given generic type.
+	 * Returns a list of {@link Class} objects corresponding to the actual type parameters of the specified generic type.
 	 * The list contains the {@link Class} objects in the order of declaration of the type parameters.
 	 * If the {@link Class} object cannot be determined for a type parameter, {@code null} is returned for that {@link Class} object.
 	 * <p>
 	 * {@code classOfGenericType} is the class of the generic type of which the type parameters shall be examined.
 	 * {@code baseClassOfGenericType} is the superclass of the generic type on which the type parameters to be examined were declared.
+	 *
+	 * @throws IllegalArgumentException if {@code classOfGenericType} or {@code baseClassOfGenericType} is {@code null}
 	 */
 	public static <T> List<Class<?>> getTypeArgumentsForGenericType(Class<? extends T> classOfGenericType, Class<T> baseClassOfGenericType) {
+		Preconditions.checkArgument(classOfGenericType != null, "Class of generic type cannot be null");
+		Preconditions.checkArgument(baseClassOfGenericType != null, "Base class of generic type cannot be null");
+
 		Map<Type, Type> resolvedTypes = Maps.newHashMap();
 
 		// Walk up the inheritance hierarchy up to the base class and resolve type arguments of parameterized types on the way

@@ -43,7 +43,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * Returns a {@link DateBuilder} representing the given instant.
+	 * Returns a {@link DateBuilder} representing the specified instant.
 	 */
 	public static DateBuilder builderBasedOnInstant(Date instant) {
 		return new DateBuilder(toCalendar(instant));

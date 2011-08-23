@@ -20,7 +20,7 @@ import com.google.common.base.Preconditions;
 
 /**
  * Utility class containing methods implementing common operations with {@code Comparable}s.
- * 
+ *
  * @author Petr Zelenka
  */
 @Beta
@@ -32,8 +32,8 @@ public class ComparableUtils {
 
 
 	/**
-	 * Returns the maximum of the given objects.
-	 * 
+	 * Returns the maximum of the specified objects.
+	 *
 	 * @throws IllegalArgumentException if {@code objects} is {@code null}
 	 * @throws IllegalArgumentException if the size of {@code objects} is less than one
 	 */
@@ -53,8 +53,8 @@ public class ComparableUtils {
 	}
 
 	/**
-	 * Returns the minimum of the given objects.
-	 * 
+	 * Returns the minimum of the specified objects.
+	 *
 	 * @throws IllegalArgumentException if {@code objects} is {@code null}
 	 * @throws IllegalArgumentException if the size of {@code objects} is less than one
 	 */

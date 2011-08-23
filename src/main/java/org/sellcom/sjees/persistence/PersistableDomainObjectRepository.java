@@ -26,28 +26,33 @@ import com.google.common.annotations.Beta;
 public interface PersistableDomainObjectRepository<T extends PersistableDomainObject> {
 
 	/**
-	 * Returns the persistable domain object having the given id.
+	 * Returns the persistable domain object having the specified id.
 	 */
 	T getById(BigInteger id);
 
 	/**
-	 * Reloads the given persistable domain object.
+	 * Reloads the specified persistable domain object.
 	 * Discards any changes made to the persistable domain object, if any.
 	 */
 	T reload(T persistableDomainObject);
 
 	/**
-	 * Removes the given persistable domain object.
+	 * Removes the specified persistable domain object.
 	 */
 	void remove(T persistableDomainObject);
 
 	/**
-	 * Saves the given persistable domain object.
+	 * Saves the specified persistable domain object.
 	 */
 	T save(T persistableDomainObject);
 
 	/**
-	 * Updates the given persistable domain object.
+	 * Saves or updates the specified persistable domain object.
+	 */
+	T saveOrUpdate(T persistableDomainObject);
+
+	/**
+	 * Updates the specified persistable domain object.
 	 */
 	T update(T persistableDomainObject);
 
