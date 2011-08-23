@@ -1,3 +1,18 @@
+/*
+ * Copyright 2011 sellcom.org
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.sellcom.sjees.datetime;
 
 import java.util.Calendar;
@@ -26,7 +41,7 @@ public class DateBuilder {
 
 
 	/**
-	 * Adds the given number of days to the instant represented by this builder.
+	 * Adds the specified number of days to the instant represented by this builder.
 	 */
 	public DateBuilder addDays(int days) {
 		calendar.add(Calendar.DAY_OF_YEAR, days);
@@ -34,7 +49,7 @@ public class DateBuilder {
 	}
 
 	/**
-	 * Adds the given number of hours to the instant represented by this builder.
+	 * Adds the specified number of hours to the instant represented by this builder.
 	 */
 	public DateBuilder addHours(int hours) {
 		calendar.add(Calendar.HOUR_OF_DAY, hours);
@@ -42,7 +57,7 @@ public class DateBuilder {
 	}
 
 	/**
-	 * Adds the given number of milliseconds to the instant represented by this builder.
+	 * Adds the specified number of milliseconds to the instant represented by this builder.
 	 */
 	public DateBuilder addMilliseconds(int milliseconds) {
 		calendar.add(Calendar.MILLISECOND, milliseconds);
@@ -50,7 +65,7 @@ public class DateBuilder {
 	}
 
 	/**
-	 * Adds the given number of minutes to the instant represented by this builder.
+	 * Adds the specified number of minutes to the instant represented by this builder.
 	 */
 	public DateBuilder addMinutes(int minutes) {
 		calendar.add(Calendar.MINUTE, minutes);
@@ -58,7 +73,7 @@ public class DateBuilder {
 	}
 
 	/**
-	 * Adds the given number of months to the instant represented by this builder.
+	 * Adds the specified number of months to the instant represented by this builder.
 	 */
 	public DateBuilder addMonths(int months) {
 		calendar.add(Calendar.MONTH, months);
@@ -66,7 +81,7 @@ public class DateBuilder {
 	}
 
 	/**
-	 * Adds the given number of seconds to the instant represented by this builder.
+	 * Adds the specified number of seconds to the instant represented by this builder.
 	 */
 	public DateBuilder addSeconds(int seconds) {
 		calendar.add(Calendar.SECOND, seconds);
@@ -74,7 +89,7 @@ public class DateBuilder {
 	}
 
 	/**
-	 * Adds the given number of weeks to the instant represented by this builder.
+	 * Adds the specified number of weeks to the instant represented by this builder.
 	 */
 	public DateBuilder addWeeks(int weeks) {
 		calendar.add(Calendar.WEEK_OF_YEAR, weeks);
@@ -82,7 +97,7 @@ public class DateBuilder {
 	}
 
 	/**
-	 * Adds the given number of years to the instant represented by this builder.
+	 * Adds the specified number of years to the instant represented by this builder.
 	 */
 	public DateBuilder addYears(int years) {
 		calendar.add(Calendar.YEAR, years);
