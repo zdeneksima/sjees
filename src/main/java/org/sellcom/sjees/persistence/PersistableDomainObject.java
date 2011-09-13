@@ -41,7 +41,7 @@ public abstract class PersistableDomainObject {
 
 	@NotNull @Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GlobalIdGenerator")
-	@Column(name = "ID", precision = 20, scale = 0, nullable = false, updatable = false) // FIXME (Petr Zelenka): "unique = true" not declared here because of https://issues.apache.org/jira/browse/DERBY-789
+	@Column(name = "ID", precision = 20, scale = 0, nullable = false, updatable = false) // FIXME [Petr Zelenka]: "unique = true" not declared here because of https://issues.apache.org/jira/browse/DERBY-789
 	private Long id;
 
 	@NotNull @Version
