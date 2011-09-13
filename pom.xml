@@ -180,7 +180,9 @@
 			<email>zdenek.sima@sellcom.org</email>
 			<timezone>+1</timezone>
 			<roles>
+				<role>Project Lead</role>
 				<role>Developer</role>
+				<role>Release Engineer</role>
 			</roles>
 		</developer>
 		<developer>
@@ -188,9 +190,8 @@
 			<email>petr.zelenka@sellcom.org</email>
 			<timezone>+1</timezone>
 			<roles>
-				<role>Project Lead</role>
+				<role>Project Consultant</role>
 				<role>Developer</role>
-				<role>Release Engineer</role>
 			</roles>
 		</developer>
 	</developers>
