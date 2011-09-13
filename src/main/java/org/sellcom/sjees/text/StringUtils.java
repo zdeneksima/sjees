@@ -59,10 +59,10 @@ public class StringUtils {
 	 * Returns the first non-empty string from the specified parameters.
 	 * Considers {@code null}s to be empty strings.
 	 *
-	 * @throws IllegalArgumentException if the last parameter is an empty string or {@code null}
+	 * @throws IllegalArgumentException if the last parameter is {@code null} or empty
 	 */
 	public static String firstNonEmpty(String... strings) {
-		Preconditions.checkArgument(!Strings.isNullOrEmpty(strings[strings.length - 1]), "The last parameter must not be empty or null");
+		Preconditions.checkArgument(!Strings.isNullOrEmpty(strings[strings.length - 1]), "The last parameter must not be null or empty");
 
 		for (String currentString : strings) {
 			if (!Strings.isNullOrEmpty(currentString)) {
@@ -101,7 +101,7 @@ public class StringUtils {
 	 */
 	public static String replaceAllUsingRegexRules(String string, Map<String, String> rules) {
 		Preconditions.checkArgument(string != null, "The input string must not be null");
-		Preconditions.checkArgument(rules != null, "The replacement rules must not be null");
+		Preconditions.checkArgument(rules != null, "The rules must not be null");
 
 		String result = string;
 

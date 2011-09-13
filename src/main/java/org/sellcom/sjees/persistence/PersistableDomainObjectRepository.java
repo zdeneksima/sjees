@@ -21,38 +21,53 @@ import com.google.common.annotations.Beta;
 
 /**
  * Repository for persistable domain objects.
+ *
+ * @author Petr Zelenka
+ * @author Zdeněk Šíma
  */
 @Beta
 public interface PersistableDomainObjectRepository<T extends PersistableDomainObject> {
 
 	/**
 	 * Returns the persistable domain object having the specified id.
+	 *
+	 * @throws IllegalArgumentException if {@code id} is {@code null}
 	 */
 	T getById(BigInteger id);
 
 	/**
 	 * Reloads the specified persistable domain object.
 	 * Discards any changes made to the persistable domain object, if any.
+	 *
+	 * @throws IllegalArgumentException if {@code persistableDomainObject} is {@code null}
 	 */
 	T reload(T persistableDomainObject);
 
 	/**
 	 * Removes the specified persistable domain object.
+	 *
+	 * @throws IllegalArgumentException if {@code persistableDomainObject} is {@code null}
 	 */
 	void remove(T persistableDomainObject);
 
 	/**
 	 * Saves the specified persistable domain object.
+	 *
+	 * @throws IllegalArgumentException if {@code persistableDomainObject} is {@code null}
 	 */
 	T save(T persistableDomainObject);
 
 	/**
 	 * Saves or updates the specified persistable domain object.
+	 *
+	 * @throws IllegalArgumentException if {@code persistableDomainObject} is {@code null}
 	 */
 	T saveOrUpdate(T persistableDomainObject);
 
 	/**
 	 * Updates the specified persistable domain object.
+	 *
+	 * @throws IllegalArgumentException if {@code persistableDomainObject} is {@code null}
 	 */
 	T update(T persistableDomainObject);
 

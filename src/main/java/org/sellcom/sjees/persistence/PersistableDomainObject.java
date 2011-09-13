@@ -30,6 +30,9 @@ import com.google.common.base.Preconditions;
 
 /**
  * Parent class for persistable domain objects.
+ *
+ * @author Petr Zelenka
+ * @author Zdeněk Šíma
  */
 @Beta
 @SequenceGenerator(name = "GlobalIdGenerator", sequenceName = "GLOBAL_ID_SEQ")
@@ -92,7 +95,7 @@ public abstract class PersistableDomainObject {
 	 */
 	public void setId(Long id) {
 		Preconditions.checkState(getId() == null, "Id has already been set");
-		Preconditions.checkArgument(id != null, "Id cannot be null");
+		Preconditions.checkArgument(id != null, "Id must not be null");
 
 		this.id = id;
 	}
@@ -105,7 +108,7 @@ public abstract class PersistableDomainObject {
 	 */
 	public void setVersion(Long version) {
 		Preconditions.checkState(getVersion() == null, "Version has already been set");
-		Preconditions.checkArgument(version != null, "Version cannot be null");
+		Preconditions.checkArgument(version != null, "Version must not be null");
 
 		this.version = version;
 	}

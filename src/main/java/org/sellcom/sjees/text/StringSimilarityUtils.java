@@ -306,7 +306,7 @@ public class StringSimilarityUtils {
 	 * If the string contains accented letters, you may want to strip the accents first.
 	 *
 	 * @throws IllegalArgumentException if {@code string} is {@code null}
-	 * @throws IllegalArgumentException if {@code string} does not contain at least one ASCII letter
+	 * @throws IllegalArgumentException if {@code string} does not contain at least one letter (see above)
 	 */
 	public static String computeNaraSoundexCode(String string) {
 		Preconditions.checkArgument(string != null, "The input string must not be null");

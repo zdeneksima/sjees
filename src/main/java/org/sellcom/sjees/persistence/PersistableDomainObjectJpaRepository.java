@@ -23,9 +23,13 @@ import javax.persistence.PersistenceContext;
 import org.sellcom.sjees.lang.ReflectionUtils;
 
 import com.google.common.annotations.Beta;
+import com.google.common.base.Preconditions;
 
 /**
  * Base class for JPA repositories for persistable domain objects.
+ *
+ * @author Petr Zelenka
+ * @author Zdeněk Šíma
  */
 @Beta
 public abstract class PersistableDomainObjectJpaRepository<T extends PersistableDomainObject> implements PersistableDomainObjectRepository<T> {
@@ -44,18 +48,26 @@ public abstract class PersistableDomainObjectJpaRepository<T extends Persistable
 
 	/**
 	 * Attach the specified persistable domain object to the current persistence context if not already attached.
+	 *
+	 * @throws IllegalArgumentException if {@code persistableDomainObject} is {@code null}
 	 */
 	protected T ensureAttached(T persistableDomainObject) {
+		Preconditions.checkArgument(persistableDomainObject != null, "The persistable domain object must not be null");
+
 		return entityManager.contains(persistableDomainObject) ? persistableDomainObject : entityManager.merge(persistableDomainObject);
 	}
 
 	@Override
 	public T getById(BigInteger id) {
+		Preconditions.checkArgument(id != null, "The persistable domain object must not be null");
+
 		return entityManager.find(persistableDomainObjectClass, id);
 	}
 
 	@Override
 	public T reload(T persistableDomainObject) {
+		Preconditions.checkArgument(persistableDomainObject != null, "The persistable domain object must not be null");
+
 		T result = ensureAttached(persistableDomainObject);
 		entityManager.refresh(result);
 		return result;
@@ -63,12 +75,16 @@ public abstract class PersistableDomainObjectJpaRepository<T extends Persistable
 
 	@Override
 	public void remove(T persistableDomainObject) {
+		Preconditions.checkArgument(persistableDomainObject != null, "The persistable domain object must not be null");
+
 		T result = ensureAttached(persistableDomainObject);
 		entityManager.remove(result);
 	}
 
 	@Override
 	public T save(T persistableDomainObject) {
+		Preconditions.checkArgument(persistableDomainObject != null, "The persistable domain object must not be null");
+
 		T result = persistableDomainObject;
 		entityManager.persist(result);
 		return result;
@@ -76,11 +92,15 @@ public abstract class PersistableDomainObjectJpaRepository<T extends Persistable
 
 	@Override
 	public T saveOrUpdate(T persistableDomainObject) {
+		Preconditions.checkArgument(persistableDomainObject != null, "The persistable domain object must not be null");
+
 		return (persistableDomainObject.getId() == null) ? save(persistableDomainObject) : update(persistableDomainObject);
 	}
 
 	@Override
 	public T update(T persistableDomainObject) {
+		Preconditions.checkArgument(persistableDomainObject != null, "The persistable domain object must not be null");
+
 		T result = ensureAttached(persistableDomainObject);
 		return result;
 	}

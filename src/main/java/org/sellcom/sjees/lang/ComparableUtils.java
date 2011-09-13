@@ -38,7 +38,7 @@ public class ComparableUtils {
 	 * @throws IllegalArgumentException if the size of {@code objects} is less than one
 	 */
 	public static <T extends Comparable<T>> T max(T... objects) {
-		Preconditions.checkArgument(objects != null, "The input parameter cannot be null");
+		Preconditions.checkArgument(objects != null, "The input parameter must not be null");
 		Preconditions.checkArgument(objects.length > 0, "The input parameter must contain at least one element");
 
 		T result = objects[0];
@@ -59,7 +59,7 @@ public class ComparableUtils {
 	 * @throws IllegalArgumentException if the size of {@code objects} is less than one
 	 */
 	public static <T extends Comparable<T>> T min(T... objects) {
-		Preconditions.checkArgument(objects != null, "The input parameter cannot be null");
+		Preconditions.checkArgument(objects != null, "The input parameter must not be null");
 		Preconditions.checkArgument(objects.length > 0, "The input parameter must contain at least one element");
 
 		T result = objects[0];

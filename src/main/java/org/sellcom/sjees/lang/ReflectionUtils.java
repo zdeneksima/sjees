@@ -48,7 +48,7 @@ public class ReflectionUtils {
 	 * @throws IllegalArgumentException if {@code type} is {@code null}
 	 */
 	public static Class<?> getClassForType(Type type) {
-		Preconditions.checkArgument(type != null, "Type cannot be null");
+		Preconditions.checkArgument(type != null, "Type must not be null");
 
 		if (type instanceof Class<?>) {
 			return (Class<?>) type;
@@ -62,7 +62,7 @@ public class ReflectionUtils {
 			Type componentType = ((GenericArrayType) type).getGenericComponentType();
 			Class<?> componentClass = getClassForType(componentType);
 
-			if (componentClass != null ) {
+			if (componentClass != null) {
 				return Array.newInstance(componentClass, 0).getClass();
 			}
 		}
@@ -81,8 +81,8 @@ public class ReflectionUtils {
 	 * @throws IllegalArgumentException if {@code classOfGenericType} or {@code baseClassOfGenericType} is {@code null}
 	 */
 	public static <T> List<Class<?>> getTypeArgumentsForGenericType(Class<? extends T> classOfGenericType, Class<T> baseClassOfGenericType) {
-		Preconditions.checkArgument(classOfGenericType != null, "Class of generic type cannot be null");
-		Preconditions.checkArgument(baseClassOfGenericType != null, "Base class of generic type cannot be null");
+		Preconditions.checkArgument(classOfGenericType != null, "Class of generic type must not be null");
+		Preconditions.checkArgument(baseClassOfGenericType != null, "Base class of generic type must not be null");
 
 		Map<Type, Type> resolvedTypes = Maps.newHashMap();
 

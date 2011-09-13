@@ -19,6 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import com.google.common.annotations.Beta;
+import com.google.common.base.Preconditions;
 
 /**
  * Utility class containing methods implementing common operations with {@code Date}s.
@@ -44,8 +45,12 @@ public class DateUtils {
 
 	/**
 	 * Returns a {@link DateBuilder} representing the specified instant.
+	 *
+	 * @throws IllegalArgumentException if {@code instant} is {@code null}
 	 */
 	public static DateBuilder builderBasedOnInstant(Date instant) {
+		Preconditions.checkArgument(instant != null, "Reference instant must not be null");
+
 		return new DateBuilder(toCalendar(instant));
 	}
 
@@ -64,8 +69,11 @@ public class DateUtils {
 	}
 
 	static Calendar toCalendar(Date instant) {
+		assert instant != null;
+
 		Calendar result = Calendar.getInstance();
 		result.setTime(instant);
+
 		return result;
 	}
 

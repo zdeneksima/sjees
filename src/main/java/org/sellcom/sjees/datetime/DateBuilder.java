@@ -104,6 +104,9 @@ public class DateBuilder {
 		return this;
 	}
 
+	/**
+	 * Returns the {@link Date} object represented by this builder.
+	 */
 	public Date build() {
 		return calendar.getTime();
 	}

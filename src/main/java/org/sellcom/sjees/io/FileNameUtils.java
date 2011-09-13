@@ -45,7 +45,7 @@ public class FileNameUtils {
 	 * @throws IllegalArgumentException if {@code fileName} is {@code null} or empty
 	 */
 	public static String getExtension(String fileName) {
-		Preconditions.checkArgument(!Strings.isNullOrEmpty(fileName), "File name cannot be null or empty");
+		Preconditions.checkArgument(!Strings.isNullOrEmpty(fileName), "File name must not be null or empty");
 
 		int positionOfLastDot = fileName.lastIndexOf('.');
 		return positionOfLastDot > 0 ? fileName.substring(positionOfLastDot + 1) : "";
@@ -63,7 +63,7 @@ public class FileNameUtils {
 	 * @throws IllegalArgumentException if {@code fileName} is {@code null} or empty
 	 */
 	public static String getNameWithoutExtension(String fileName) {
-		Preconditions.checkArgument(!Strings.isNullOrEmpty(fileName), "File name cannot be null or empty");
+		Preconditions.checkArgument(!Strings.isNullOrEmpty(fileName), "File name must not be null or empty");
 
 		int positionOfLastDot = fileName.lastIndexOf('.');
 		return positionOfLastDot > 0 ? fileName.substring(0, positionOfLastDot) : fileName;
