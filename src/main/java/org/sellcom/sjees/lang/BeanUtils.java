@@ -20,6 +20,8 @@ import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.util.Map;
 
+import org.sellcom.sjees.util.LruCache;
+
 import com.google.common.annotations.Beta;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
@@ -33,8 +35,7 @@ import com.google.common.collect.Maps;
 @Beta
 public class BeanUtils { // TODO [Petr Zelenka]: Implement tests, concentrate on properties of primitive types
 
-	// TODO [Petr Zelenka]: Implement cache for property descriptor (see below)
-	// see com.google.common.cache.CacheBuilder in Google Guava r10
+	private static final Map<Class<?>, Map<String, PropertyDescriptor>> PROPERTY_DESCRIPTOR_CACHE = new LruCache<Class<?>, Map<String,PropertyDescriptor>>(100);
 
 
 	private BeanUtils() {
@@ -53,7 +54,7 @@ public class BeanUtils { // TODO [Petr Zelenka]: Implement tests, concentrate on
 		Preconditions.checkArgument(beanClass != null, "Bean class must not be null");
 		Preconditions.checkArgument(!Strings.isNullOrEmpty(propertyName), "Property name must not be null or empty");
 
-		Map<String, PropertyDescriptor> propertyDescriptorsForBeanClass = null; // TODO [Petr Zelenka]: Consult cache (see above)
+		Map<String, PropertyDescriptor> propertyDescriptorsForBeanClass = PROPERTY_DESCRIPTOR_CACHE.get(beanClass);
 
 		if (propertyDescriptorsForBeanClass == null) {
 			try {
@@ -62,7 +63,7 @@ public class BeanUtils { // TODO [Petr Zelenka]: Implement tests, concentrate on
 					propertyDescriptorsForBeanClass.put(descriptor.getName(), descriptor);
 				}
 
-				// TODO [Petr Zelenka]: Insert into cache (see above)
+				PROPERTY_DESCRIPTOR_CACHE.put(beanClass, propertyDescriptorsForBeanClass);
 			} catch (IntrospectionException e) {
 				return null;
 			}
